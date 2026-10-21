@@ -1,10 +1,9 @@
 package BankAccount;
 
-public class SavingsAccount extends BankAccount {
+public class SavingsAccount {
     private String ownerName;
 
-    public SavingsAccount(double balance, boolean isFrozen, String ownerName) {
-        super(balance, isFrozen);
+    public SavingsAccount(String ownerName) {
         this.ownerName = ownerName;
     }
 

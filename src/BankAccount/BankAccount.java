@@ -55,4 +55,10 @@ public class BankAccount {
 
 
     // HEREIN RUN MAIN FUNCTION
+    public static void main(String[] args) {
+        SavingsAccount acc1 = new SavingsAccount("Test0");
+        System.out.print("Account Owner: " + acc1);
+        
+        
+    }
 }
