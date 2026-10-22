@@ -14,14 +14,17 @@ public class BankAccountManager implements Bank {
     }
 
     public void addAccount(BankAccount account){
-        // todo
+        for(int i : accounts.keySet()){ 
+            accounts.put(id, account);
+            id++;
+        }
     }
 
     public int getAccount(int id){
         return id;
     }
 
-    public void listAccounts(){
-        
+    public Map<Integer, BankAccount> listAccounts(){
+        return accounts;
     }
 }

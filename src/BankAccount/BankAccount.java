@@ -33,6 +33,7 @@ public class BankAccount {
       System.out.printf("Amount deposited is %.2f%nIt must not be zero\n", amount);
     } else {
       this.balance += amount;
+      transactionHistory.add(new Transaction("Deposit", amount));
     }
 
     System.out.printf("Current balance: %.2f%n", this.balance);
@@ -55,10 +56,15 @@ public class BankAccount {
       System.out.printf("Amount withdrawn: %.2f%nInsufficient balance.\n", amount);
     } else {
       this.balance -= amount;
-    }
+      transactionHistory.add(new Transaction("Withdraw", amount));
 
+    }
     System.out.printf("Current balance: %.2f%n", this.balance);
     return this.balance;
+  }
+
+  public List<Transaction> getTransactionHistory() {
+    return transactionHistory; 
   }
 
   public double getBalance() {
