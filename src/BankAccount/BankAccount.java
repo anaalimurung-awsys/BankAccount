@@ -1,4 +1,6 @@
 package bankaccount;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Initializes the parent class Bank Account.
@@ -8,10 +10,12 @@ package bankaccount;
 public class BankAccount {
   public double balance;
   public boolean isFrozen;
+  public List<Transaction> transactionHistory;
 
   public BankAccount() {
     this.balance = 0;
     this.isFrozen = false;
+    this.transactionHistory = new ArrayList<>();
   }
 
   /**
