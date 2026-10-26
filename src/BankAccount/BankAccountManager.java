@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BankAccountManager implements Bank {
-    public Map<Integer, BankAccount> accounts;
+    private Map<Integer, BankAccount> accounts;
     private int id;
 
     BankAccountManager(){
@@ -14,14 +14,14 @@ public class BankAccountManager implements Bank {
     }
 
     public void addAccount(BankAccount account){
-        for(int i : accounts.keySet()){ 
-            accounts.put(id, account);
-            id++;
-        }
+        int currentId = this.id;
+        accounts.put(currentId, account);
+        this.id++;
+        System.out.println("Account added succesfully: " + currentId);
     }
 
-    public int getAccount(int id){
-        return id;
+    public BankAccount getAccount(int id){
+        return accounts.get(id);
     }
 
     public Map<Integer, BankAccount> listAccounts(){

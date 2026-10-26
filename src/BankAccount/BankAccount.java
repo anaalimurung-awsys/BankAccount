@@ -8,9 +8,9 @@ import java.util.List;
  */
 
 public class BankAccount {
-  public double balance;
-  public boolean isFrozen;
-  public List<Transaction> transactionHistory;
+  private double balance;
+  private boolean isFrozen;
+  private List<Transaction> transactionHistory;
 
   public BankAccount() {
     this.balance = 0;
