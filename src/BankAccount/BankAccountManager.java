@@ -46,7 +46,7 @@ public class BankAccountManager implements Bank {
                 acc = ((SavingsAccount) account).getOwnerName();
             }
 
-            double bal = account.getBalance();
+            double bal = Math.round(account.getBalance() * 100.0) / 100.0;
 
             System.out.println("\nAccount ID: " + entry.getKey() + 
             ", Account Name: " + acc + ", Balance: " + bal);
