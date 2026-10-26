@@ -27,6 +27,8 @@ public class BankAccount {
   public void deposit(double amount) {
     if (isFrozen) {
       System.out.println("Account is FROZEN. Unable to transact.");
+      System.out.printf("Current balance: %.2f%n", this.balance);
+
       return;
     }
     
@@ -51,11 +53,13 @@ public class BankAccount {
   public void withdraw(double amount) {
     if (isFrozen == true) {
       System.out.println("Account is FROZEN. Unable to transact.");
+      System.out.printf("Current balance: %.2f%n", this.balance);
+
       return;
     } 
     
+    System.out.printf("Amount withdrawn: %.2f%n", amount);
     if (amount < 0) {
-      System.out.printf("Amount withdrawn: %.2f%n", amount);
       System.out.println("Invalid amount. Must be greater than 0.");
     } else if (amount == 0 || amount > this.balance) {
       System.out.printf("Amount withdrawn: %.2f%nInsufficient balance.\n", amount);
