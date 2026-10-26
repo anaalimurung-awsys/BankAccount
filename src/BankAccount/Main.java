@@ -11,6 +11,7 @@ public class Main {
      */
 
     public static void main(String[] args) {
+        // EXERCISE 1 | TEST CASES
         // upcasting
         BankAccount acc1 = new SavingsAccount("Test0");
 
@@ -59,8 +60,26 @@ public class Main {
         acc.unfreezeAccount();
         acc.withdraw(100);
 
-        // EXERCISE 2 | TEST CASE 1
+        // EXERCISE 2 | TEST CASES
+        // TEST CASE 11
         System.out.println("\nTEST CASE 11:");
         acc.getTransactionHistory();
+
+        // TEST CASE 12
+        System.out.println("\nTEST CASE 12:");
+        BankAccountManager accM1 = new BankAccountManager();
+        System.out.println(accM1);
+
+        // TEST CASE 13
+        System.out.println("\nTEST CASE 13:");
+        accM1.addAccount(acc1);
+
+        // TEST CASE 14
+        System.out.println("\nTEST CASE 14:");
+        accM1.addAccount(new SavingsAccount("Test1"));
+
+        // TEST CASE 15
+        System.out.println("\nTEST CASE 15:");
+        accM1.listAccounts();
   }
 }

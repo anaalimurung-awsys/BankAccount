@@ -8,9 +8,9 @@ import java.util.List;
  */
 
 public class BankAccount {
-  public double balance;
-  public boolean isFrozen;
-  public List<Transaction> transactionHistory;
+  private double balance;
+  private boolean isFrozen;
+  private List<Transaction> transactionHistory;
 
   public BankAccount() {
     this.balance = 0;
@@ -27,6 +27,7 @@ public class BankAccount {
   public void deposit(double amount) {
     if (isFrozen) {
       System.out.println("Account is FROZEN. Unable to transact.");
+      return;
     }
     
     if (amount < 0) {
@@ -48,8 +49,9 @@ public class BankAccount {
    */
   
   public void withdraw(double amount) {
-    if (isFrozen) {
+    if (isFrozen == true) {
       System.out.println("Account is FROZEN. Unable to transact.");
+      return;
     } 
     
     if (amount < 0) {
