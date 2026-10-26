@@ -13,7 +13,6 @@ public class Transaction {
     }
 
     public String toString(){
-		String str = type + String.valueOf(amount) + String.valueOf(time_stamp);
-		return str;
+        return "[type = " + this.type + ", amount = " + this.amount + ", time_stamp = " + this.time_stamp + "]\n";
 	}
 }

@@ -24,10 +24,12 @@ public class BankAccount {
    * Return: updated balance
    */
 
-  public double deposit(double amount) {
+  public void deposit(double amount) {
     if (isFrozen) {
       System.out.println("Account is FROZEN. Unable to transact.");
-    } else if (amount < 0) {
+    }
+    
+    if (amount < 0) {
       System.out.printf("Amount deposited is %.2f%nIt must not be negative\n", amount);
     } else if (amount == 0) {
       System.out.printf("Amount deposited is %.2f%nIt must not be zero\n", amount);
@@ -37,7 +39,6 @@ public class BankAccount {
     }
 
     System.out.printf("Current balance: %.2f%n", this.balance);
-    return balance;
   }
 
   /**
@@ -46,10 +47,12 @@ public class BankAccount {
    * Return: updated balance
    */
   
-  public double withdraw(double amount) {
+  public void withdraw(double amount) {
     if (isFrozen) {
       System.out.println("Account is FROZEN. Unable to transact.");
-    } else if (amount < 0) {
+    } 
+    
+    if (amount < 0) {
       System.out.printf("Amount withdrawn: %.2f%n", amount);
       System.out.println("Invalid amount. Must be greater than 0.");
     } else if (amount == 0 || amount > this.balance) {
@@ -60,7 +63,6 @@ public class BankAccount {
 
     }
     System.out.printf("Current balance: %.2f%n", this.balance);
-    return this.balance;
   }
 
   public List<Transaction> getTransactionHistory() {
@@ -78,9 +80,5 @@ public class BankAccount {
 
   public void unfreezeAccount() {
     isFrozen = false;
-  }
-
-  public boolean isFrozen() {
-    return this.isFrozen;
   }
 }
