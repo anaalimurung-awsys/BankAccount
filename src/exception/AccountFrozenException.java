@@ -1,14 +1,17 @@
 package exception;
 
+/**
+ * AccountFrozenException.
+ */
 public class AccountFrozenException extends Exception {
-    private String message;
-    
-    public AccountFrozenException (String message){
-      super(message);
-      this.message = message;
-    }   
+  private String message;
 
-    public String getString(){
-      return this.message;
-    }
+  public AccountFrozenException(String message) {
+    super(message);
+    this.message = message;
+  }
+
+  public String getString() {
+    return this.message;
+  }
 }

@@ -37,12 +37,4 @@ public class Transaction {
   public double getAmount() {
     return this.amount;
   }
-
-  public String getType() {
-    return this.type;
-  }
-
-  public LocalDateTime getTimeStamp() {
-    return this.timeStamp;
-  }
 }
