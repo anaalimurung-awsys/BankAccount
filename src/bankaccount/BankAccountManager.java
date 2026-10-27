@@ -1,7 +1,10 @@
 package bankaccount;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BankAccountManager implements Bank {
     private Map<Integer, BankAccount> accounts;
@@ -49,7 +52,25 @@ public class BankAccountManager implements Bank {
 
             System.out.println("\nAccount ID: " + entry.getKey() + 
             ", Account Name: " + acc + ", Balance: " + bal);
-
         }
+    }
+
+    @Override 
+    public List<Transaction> filterTransactionsAtOrAbove (
+        double amount, List<Transaction> accList
+    ){
+        return accList.stream().
+        filter(tx -> tx.getAmount() >= amount).
+        collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Transaction> sortTransactionsByAmount(
+        List<Transaction> accList
+    ){
+        List<Transaction> sortedAccList = new ArrayList<>(accList);
+        
+        sortedAccList.sort((a, b) -> Double.compare(a.getAmount(), b.getAmount()));
+        return sortedAccList;
     }
 }

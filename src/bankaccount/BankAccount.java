@@ -100,7 +100,6 @@ public class BankAccount {
   }
 
   public List<Transaction> getTransactionHistory() {
-    System.out.println(transactionHistory);
     return transactionHistory; 
   }
 

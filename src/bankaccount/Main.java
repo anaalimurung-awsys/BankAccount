@@ -4,6 +4,8 @@ import exception.AccountFrozenException;
 import exception.InvalidAmountException;
 import exception.InsufficientFundsException;
 
+import java.util.*;
+
 /**
   * Running the main.
   */
@@ -124,7 +126,7 @@ public class Main {
         // EXERCISE 2 | TEST CASES
         // TEST CASE 11
         System.out.println("\nTEST CASE 11:");
-        acc.getTransactionHistory();
+        System.out.println(acc.getTransactionHistory());
 
         // TEST CASE 12
         System.out.println("\nTEST CASE 12:");
@@ -167,8 +169,8 @@ public class Main {
         try{
           acc.withdraw(-100);
         }catch (InsufficientFundsException | 
-          InvalidAmountException | 
-          AccountFrozenException e) {
+          InvalidAmountException 
+          | AccountFrozenException e) {
           System.out.println(e.getMessage());
         }
 
@@ -196,6 +198,14 @@ public class Main {
         }
 
         // TEST CASE 21
-        
+        System.out.println("\nTEST CASE 21:");
+        List<Transaction> filteredList = 
+          accM1.filterTransactionsAtOrAbove(200, acc1.getTransactionHistory());
+
+        System.out.println(filteredList);
+
+        // TEST CASE 22
+        System.out.println("\nTEST CASE 22:");
+        System.out.print(acc1.getTransactionHistory());
   }
 }
