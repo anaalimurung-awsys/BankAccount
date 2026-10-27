@@ -46,7 +46,7 @@ public class Main {
         System.out.println("\nTEST CASE 4:");
         try {
           acc.deposit(-500);
-        } catch (InvalidAmountException | AccountFrozenException e) {
+        } catch (InvalidAmountException | AccountFrozenException e){
           System.out.println(e.getMessage());
         }
 
@@ -54,7 +54,9 @@ public class Main {
         System.out.println("\nTEST CASE 5:");
         try {
           acc.withdraw(500);
-        } catch (InvalidAmountException | InsufficientFundsException | AccountFrozenException e) {
+        } catch (InvalidAmountException | 
+          InsufficientFundsException | 
+          AccountFrozenException e) {
           System.out.println(e.getMessage());
         }
 
@@ -63,7 +65,9 @@ public class Main {
         try {
           acc.withdraw(1500);
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
-        } catch (InvalidAmountException | InsufficientFundsException | AccountFrozenException e) {
+        } catch (InvalidAmountException | 
+          InsufficientFundsException | 
+          AccountFrozenException e) {
           System.out.println(e.getMessage());
         } finally {
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
@@ -74,7 +78,9 @@ public class Main {
         try {
           acc.withdraw(-100);
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
-        } catch (InvalidAmountException | InsufficientFundsException | AccountFrozenException e) {
+        } catch (InvalidAmountException | 
+          InsufficientFundsException | 
+          AccountFrozenException e) {
           System.out.println(e.getMessage());
         } finally {
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
@@ -96,7 +102,9 @@ public class Main {
         try {
           acc.withdraw(500);
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
-        } catch (InvalidAmountException | InsufficientFundsException | AccountFrozenException e) {
+        } catch (InvalidAmountException | 
+          InsufficientFundsException | 
+          AccountFrozenException e) {
           System.out.println(e.getMessage());
         } finally {
           System.out.printf("Current balance: %.2f%n", acc.getBalance());
@@ -107,7 +115,9 @@ public class Main {
         acc.unfreezeAccount();
         try {
           acc.withdraw(100);
-        } catch (InvalidAmountException | InsufficientFundsException | AccountFrozenException e) {
+        } catch (InvalidAmountException | 
+          InsufficientFundsException | 
+          AccountFrozenException e) {
           System.out.println(e.getMessage());
         }
 
@@ -132,5 +142,60 @@ public class Main {
         // TEST CASE 15
         System.out.println("\nTEST CASE 15:");
         accM1.listAccounts();
+
+        // EXERCISE 3 | TEST CASES
+        // TEST CASE 16
+        System.out.println("\nTEST CASE 16:");
+        try{
+          acc.deposit(-500);
+        } catch (InvalidAmountException | AccountFrozenException e) {
+          System.out.println(e.getMessage());
+        }
+
+        // TEST CASE 17
+        System.out.println("\nTEST CASE 17:");
+        acc.freezeAccount();
+        try {
+          acc.deposit(11500);
+        } catch (InvalidAmountException | AccountFrozenException e) {
+          System.out.println(e.getMessage());
+        }
+
+        // TEST CASE 18
+        System.out.println("\nTEST CASE 18:");
+        acc.unfreezeAccount();
+        try{
+          acc.withdraw(-100);
+        }catch (InsufficientFundsException | 
+          InvalidAmountException | 
+          AccountFrozenException e) {
+          System.out.println(e.getMessage());
+        }
+
+        // TEST CASE 19
+        System.out.println("\nTEST CASE 19:");
+        try{
+          acc.withdraw(1500);
+        } catch (InsufficientFundsException | 
+          InvalidAmountException | 
+          AccountFrozenException e){
+            System.out.println(e.getMessage());
+        } finally {
+          System.out.printf("Current balance: %.2f%n", acc.getBalance());
+        }
+
+        // TEST CASE 20
+        System.out.println("\nTEST CASE 20:");
+        acc.freezeAccount();
+        try {
+          acc.withdraw(500);
+        } catch (InsufficientFundsException | 
+          InvalidAmountException | 
+          AccountFrozenException e){
+            System.out.println(e.getMessage());
+        }
+
+        // TEST CASE 21
+        
   }
 }

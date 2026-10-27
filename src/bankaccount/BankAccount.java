@@ -19,10 +19,14 @@ public class BankAccount {
   private boolean isFrozen;
   private List<Transaction> transactionHistory;
 
-  private static final String INVALID_AMOUNT = "Invalid amount. Must be greater than 0."; 
-  private static final String INSUFFICIENT_FUNDS = "It must not be zero.";
-  private static final String INSUFFICIENT_AMOUNT = "Amount is greater than the balance.";
-  private static final String ACCOUNT_FROZEN = "Account is FROZEN. Unable to transact.";
+  private static final String INVALID_AMOUNT = 
+  "Invalid amount. Must be greater than 0."; 
+  private static final String INSUFFICIENT_FUNDS = 
+  "It must not be zero.";
+  private static final String INSUFFICIENT_BALANCE = 
+  "Insufficient balance.";
+  private static final String ACCOUNT_FROZEN = 
+  "Account is FROZEN. Unable to transact.";
 
   /**
    * constructor for BankAccount class.
@@ -42,7 +46,8 @@ public class BankAccount {
    * 
    */
 
-  public void deposit(double amount) throws InvalidAmountException, AccountFrozenException {
+  public void deposit(double amount) throws InvalidAmountException, 
+      AccountFrozenException {
     if (isFrozen) {
       throw new AccountFrozenException(ACCOUNT_FROZEN);
     }
@@ -83,7 +88,7 @@ public class BankAccount {
       throw new InsufficientFundsException(INSUFFICIENT_FUNDS);
     } 
     else if (amount > this.balance) {
-      throw new InsufficientFundsException(INSUFFICIENT_AMOUNT);
+      throw new InsufficientFundsException(INSUFFICIENT_BALANCE);
     } 
     else {
       this.balance -= amount;
