@@ -49,11 +49,11 @@ public class BankAccount {
 
       if (amount <= 0) {
         throw new InvalidAmountException(INVALID_AMOUNT);
-      } else {
-        this.balance += amount;
-        transactionHistory.add(new Transaction("Deposit", amount));
-      }
+      } 
 
+      this.balance += amount;
+      transactionHistory.add(new Transaction("Deposit", amount));
+      
       System.out.printf("Current balance: %.2f%n", this.balance);
     } catch (InvalidAmountException | AccountFrozenException e) {
       System.out.println(e.getMessage());
@@ -82,11 +82,10 @@ public class BankAccount {
         throw new InsufficientFundsException(INSUFFICIENT_FUNDS);
       } else if (amount > this.balance) {
         throw new InsufficientFundsException(INSUFFICIENT_BALANCE);
-      } else {
-        this.balance -= amount;
-        transactionHistory.add(new Transaction("Withdraw", amount));
+      } 
 
-      }
+      this.balance -= amount;
+      transactionHistory.add(new Transaction("Withdraw", amount));
 
       System.out.printf("Current balance: %.2f%n", this.balance);
     } catch (InvalidAmountException

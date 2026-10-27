@@ -12,7 +12,8 @@ public class Transaction {
   private double amount;
   private LocalDateTime timeStamp;
 
-  private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+  private static final DateTimeFormatter FORMAT = 
+      DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
   /**
  * Constructor for Transaction class.
