@@ -1,35 +1,48 @@
 package bankaccount;
-import java.time.format.DateTimeFormatter;
+
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
+/**
+ * Initializes Transaction class.
+ * 
+ */
 public class Transaction {
-    private String type;
-    private double amount;
-    private LocalDateTime time_stamp;
+  private String type;
+  private double amount;
+  private LocalDateTime timeStamp;
 
-    private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+  private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    public Transaction(String type, double amount){
-        this.type = type;
-        this.amount = amount;
-        this.time_stamp = LocalDateTime.now();
-    }
+  /**
+ * Constructor for Transaction class.
+ * 
+ */
+  public Transaction(String type, double amount) {
+    this.type = type;
+    this.amount = amount;
+    this.timeStamp = LocalDateTime.now();
+  }
 
-    public String toString(){
-        return "[type = " + this.type + ", amount = " 
-        + this.amount + ", time_stamp = " 
-        + this.time_stamp.format(FORMAT) + "]\n";
-	}
+  /**
+ * Returns a string that has the details for a transactions.
+ * 
+ */
+  public String toString() {
+    return "type = " + this.type + ", amount = "
+        + this.amount + ", time_stamp = "
+        + this.timeStamp.format(FORMAT) + "]\n";
+  }
 
-    public double getAmount(){
-        return this.amount;
-    }
+  public double getAmount() {
+    return this.amount;
+  }
 
-    public String getType(){
-        return this.type;
-    }
+  public String getType() {
+    return this.type;
+  }
 
-    public LocalDateTime getTimeStamp(){
-        return this.time_stamp;
-    }
+  public LocalDateTime getTimeStamp() {
+    return this.timeStamp;
+  }
 }

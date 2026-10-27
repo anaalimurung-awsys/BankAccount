@@ -3,11 +3,8 @@ package bankaccount;
 import exception.AccountFrozenException;
 import exception.InsufficientFundsException;
 import exception.InvalidAmountException;
-
 import java.util.ArrayList;
 import java.util.List;
-
-
 
 /**
  * Initializes the parent class Bank Account.
@@ -19,14 +16,10 @@ public class BankAccount {
   private boolean isFrozen;
   private List<Transaction> transactionHistory;
 
-  private static final String INVALID_AMOUNT = 
-  "Invalid amount. Must be greater than 0."; 
-  private static final String INSUFFICIENT_FUNDS = 
-  "It must not be zero.";
-  private static final String INSUFFICIENT_BALANCE = 
-  "Insufficient balance.";
-  private static final String ACCOUNT_FROZEN = 
-  "Account is FROZEN. Unable to transact.";
+  private static final String INVALID_AMOUNT = "Invalid amount. Must be greater than 0.";
+  private static final String INSUFFICIENT_FUNDS = "It must not be zero.";
+  private static final String INSUFFICIENT_BALANCE = "Insufficient balance.";
+  private static final String ACCOUNT_FROZEN = "Account is FROZEN. Unable to transact.";
 
   /**
    * constructor for BankAccount class.
@@ -46,18 +39,17 @@ public class BankAccount {
    * 
    */
 
-  public void deposit(double amount) throws InvalidAmountException, 
+  public void deposit(double amount) throws InvalidAmountException,
       AccountFrozenException {
     if (isFrozen) {
       throw new AccountFrozenException(ACCOUNT_FROZEN);
     }
-    
+
     System.out.printf("Amount deposited is %.2f%n\n", amount);
 
     if (amount <= 0) {
       throw new InvalidAmountException(INVALID_AMOUNT);
-    } 
-    else {
+    } else {
       this.balance += amount;
       transactionHistory.add(new Transaction("Deposit", amount));
     }
@@ -72,35 +64,32 @@ public class BankAccount {
    * Throws: InsufficientFunds, AccountFrozen, InvalidAmount
    * 
    */
-  
-  public void withdraw(double amount) throws InsufficientFundsException, 
+
+  public void withdraw(double amount) throws InsufficientFundsException,
       InvalidAmountException, AccountFrozenException {
     if (isFrozen == true) {
       throw new AccountFrozenException(ACCOUNT_FROZEN);
-    } 
+    }
 
     System.out.printf("Amount withdrawn: %.2f%n", amount);
-    
+
     if (amount < 0) {
       throw new InvalidAmountException(INVALID_AMOUNT);
-    } 
-    else if (amount == 0 ) {
+    } else if (amount == 0) {
       throw new InsufficientFundsException(INSUFFICIENT_FUNDS);
-    } 
-    else if (amount > this.balance) {
+    } else if (amount > this.balance) {
       throw new InsufficientFundsException(INSUFFICIENT_BALANCE);
-    } 
-    else {
+    } else {
       this.balance -= amount;
       transactionHistory.add(new Transaction("Withdraw", amount));
 
     }
-    
+
     System.out.printf("Current balance: %.2f%n", this.balance);
   }
 
   public List<Transaction> getTransactionHistory() {
-    return transactionHistory; 
+    return transactionHistory;
   }
 
   public double getBalance() {
